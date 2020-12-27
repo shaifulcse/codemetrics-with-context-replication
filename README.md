@@ -44,6 +44,6 @@ For both graphs:
 
 ##### Table 1
 
-`cd code/project_table/`
+`cd code/methodology/`
 
 `python avg-median-revision.py`
