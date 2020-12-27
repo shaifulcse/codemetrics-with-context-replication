@@ -29,9 +29,21 @@ Here we describe how to reproduce the results of the paper in each section.
 
 ##### Confound factor
 
-`python code/RL/NBDvsReadability.py`
+`cd code/RL/`
+
+`python NBDvsReadability.py`
 
 ##### Normalization
 For both graphs:
 
-`python code/RL/change_transformation.py`
+`cd code/RL/`
+
+`python change_transformation.py`
+
+#### Methodology
+
+##### Table 1
+
+`cd code/project_table/`
+
+`python avg-median-revision.py`
