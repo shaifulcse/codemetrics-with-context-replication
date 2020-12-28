@@ -53,3 +53,25 @@ For both graphs:
 `cd code/methodology/`
 
 `python  combiner.py`
+
+#### Results (Past)
+
+#####  Code metrics and #Revisions
+
+`cd code/results-past/`
+
+`python  figure-3-a.py`
+
+#####  SLOC and change indicators
+
+`cd code/results-past/`
+
+`python  figure-3-b.py`
+
+#####  Code metrics and SLOC
+
+`cd code/results-past/`
+
+`python  figure-3-c.py`
+
+
