@@ -24,6 +24,9 @@ Here we describe how to reproduce the results of the paper in each section.
 `matplotlib`
 `scipy`
 `seaborn`
+`sklearn`
+`numpy`
+
 
 #### Related work
 
@@ -73,5 +76,26 @@ For both graphs:
 `cd code/results-past/`
 
 `python  figure-3-c.py`
+
+#####  Normalized metrics and #Revisions
+
+`cd code/results-past/`
+
+`python  figure-4-a.py`
+
+#####  Normalized metrics and SLOC
+
+`cd code/results-past/`
+
+`python  figure-4-b.py`
+
+##### Normalized McCabe against SLOC
+
+`cd code/results-past/`
+
+`python  figure-4-c.py`
+
+
+
 
 
