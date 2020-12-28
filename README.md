@@ -74,4 +74,25 @@ For both graphs:
 
 `python  figure-3-c.py`
 
+#####  Normalized metrics and #Revisions
+
+`cd code/results-past/`
+
+`python  figure-4-a.py`
+
+#####  Normalized metrics and SLOC
+
+`cd code/results-past/`
+
+`python  figure-4-b.py`
+
+##### Normalized McCabe against SLOC
+
+`cd code/results-past/`
+
+`python  figure-4-c.py`
+
+
+
+
 
