@@ -47,3 +47,9 @@ For both graphs:
 `cd code/methodology/`
 
 `python avg-median-revision.py`
+
+##### Age Normalization graph
+
+`cd code/methodology/`
+
+`python  combiner.py`
