@@ -24,6 +24,9 @@ Here we describe how to reproduce the results of the paper in each section.
 `matplotlib`
 `scipy`
 `seaborn`
+`sklearn`
+`numpy`
+
 
 #### Related work
 
