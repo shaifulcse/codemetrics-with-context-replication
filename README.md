@@ -117,5 +117,21 @@ For both graphs:
 `python  figure-6-c.py`
 
 
+##### Figure 8 (a)
 
+`cd code/regression/`
+
+`python  figure-8-a.py`
+
+##### Figure 8 (b)
+
+`cd code/regression/`
+
+`python  figure-8-b.py`
+
+##### Figure 8 (c)
+
+`cd code/regression/`
+
+`python  figure-8-c.py`
 
