@@ -96,6 +96,26 @@ For both graphs:
 `python  figure-4-c.py`
 
 
+#### Regression
+
+##### Figure 6 (a)
+
+`cd code/regression/`
+
+`python  figure-6-a.py`
+
+##### Figure 6 (b)
+
+`cd code/regression/`
+
+`python  figure-6-b.py`
+
+##### Figure 6 (c)
+
+`cd code/regression/`
+
+`python  figure-6-c.py`
+
 
 
 
