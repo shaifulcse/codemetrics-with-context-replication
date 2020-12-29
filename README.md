@@ -143,3 +143,12 @@ For both graphs:
 
 `python  thresholdDetermination.py`
 
+
+#### Readability and variability
+
+
+`cd code/others`
+
+`python  slocVSreadability.py`
+
+`python  variability.py`
