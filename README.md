@@ -135,3 +135,11 @@ For both graphs:
 
 `python  figure-8-c.py`
 
+
+#### SLOC Thresholds for small, medium, large, very large methods
+
+
+`cd code/thresholds`
+
+`python  thresholdDetermination.py`
+
