@@ -195,15 +195,15 @@ def draw_graph():
   
   currentAxis = plt.gca()
 
-  currentAxis.add_patch(Rectangle((22 , 0), 0, 0.7, fill=False, color = 'g', linewidth = 4, ls = "-."))
-  currentAxis.add_patch(Rectangle((0 , 0.7), 22, 0,   fill=False, color = 'g', linewidth = 4, ls = "-."))
+  currentAxis.add_patch(Rectangle((21 , 0), 0, 0.7, fill=False, color = 'g', linewidth = 4, ls = "-."))
+  currentAxis.add_patch(Rectangle((0 , 0.7), 21, 0,   fill=False, color = 'g', linewidth = 4, ls = "-."))
   
 
-  currentAxis.add_patch(Rectangle((33 , 0), 0, 0.8, fill=False, color = 'y', linewidth = 4, ls = "-."))
-  currentAxis.add_patch(Rectangle((0 , 0.8), 33, 0,   fill=False, color = 'y', linewidth = 4, ls = "-."))
+  currentAxis.add_patch(Rectangle((32 , 0), 0, 0.8, fill=False, color = 'y', linewidth = 4, ls = "-."))
+  currentAxis.add_patch(Rectangle((0 , 0.8), 32, 0,   fill=False, color = 'y', linewidth = 4, ls = "-."))
 
-  currentAxis.add_patch(Rectangle((61 , 0), 0, 0.9, fill=False, color = 'red', linewidth = 4, ls = "-."))
-  currentAxis.add_patch(Rectangle((0 , 0.9), 61, 0,   fill=False, color = 'red', linewidth = 4, ls = "-."))
+  currentAxis.add_patch(Rectangle((58 , 0), 0, 0.9, fill=False, color = 'red', linewidth = 4, ls = "-."))
+  currentAxis.add_patch(Rectangle((0 , 0.9), 58, 0,   fill=False, color = 'red', linewidth = 4, ls = "-."))
 
 #  plt.legend(("Broke rule","Followed Rule"),loc=0,fontsize=20)
 
