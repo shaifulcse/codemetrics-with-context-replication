@@ -28,15 +28,13 @@ RESULT_PATH="../../data/complexity-and-change-data/"
 PROJECTS = {}
 correl_feature = {}
 
-styles=['-', '--','-.',':']
-colors = ['r', 'g','b','y']
 styles=["-", "--","-.", ":", "-", "--","-.", ":"]
-marks=["^", "d", "o", "v", "p", "s", "<", ">"]
+marks=["^", "d", "o", "v", "p", "s", "*", ">"]
 #marks_size=[15, 17, 10, 15, 17, 10, 12,15]
-marks_size=[15, 17, 10, 15, 17, 10, 12,15]
+marks_size=[12, 12, 12, 12, 12, 12, 18, 20]
 marker_color=['#0F52BA','#ff7518','#6CA939','#e34234','#756bb1','brown','#c994c7', '#636363']
+gap = [3,5,3,4,3,2,4,5,3]
 
-gap = [5,5,3,4,4,3]
 
 def list_projects():
   fr = open(PROJECTS_LIST,"r")
@@ -246,6 +244,7 @@ def draw_graph():
   plt.xlabel("Correlation",fontsize=20)
   plt.ylabel("CDF",fontsize=18) 
 
+  plt.xticks(rotation=25)
   for label in ax.get_xticklabels():
     label.set_fontsize(19)
   for label in ax.get_yticklabels():
@@ -270,8 +269,8 @@ if __name__ == "__main__":
   changeTypes =["#Revisions", "NewAdditions", "DiffSizes", "EditDistances"] 
   ### will change based on feature 
   #all_features = ['McCabe', 'IndentSTD','totalFanOut','Readability']
-  all_features =['McCabe','Mcclure','MaximumBlockDepth', 'IndentSTD','totalFanOut', 'Readability']
-  legends = ['McCabe','McClure','NBD', 'IndentSTD','totalFanOut', 'Readability']
+  all_features =['McCabe','Mcclure','MaximumBlockDepth', 'IndentSTD','totalFanOut', 'Readability',  'MaintainabilityIndex']
+  legends = ['McCabe','McClure','NBD', 'IndentSTD','totalFanOut', 'Readability', 'MIndex']
   #legends = ['McCabe', 'IndentSTD','totalFanOut','Readability']
   #all_features = ['McCabe','Mcclure']
   

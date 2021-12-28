@@ -242,9 +242,11 @@ def draw_graph():
     plt.setp(line, linewidth=1,ls=styles[index], marker=marks[index], 
              markerfacecolor=marker_color[index], markersize = 12, color=marker_color[index],markevery=gap[index])
     index += 1
-  plt.legend((legends),loc=2,fontsize=18)
+  plt.legend((legends),loc=10,fontsize=18)
   plt.xlabel("Correlation",fontsize=20)
   plt.ylabel("CDF",fontsize=18) 
+
+  ax.set_xlim(-0.57, 0.5)
 
   for label in ax.get_xticklabels():
     label.set_fontsize(19)
@@ -262,17 +264,18 @@ if __name__ == "__main__":
   global changeTypes
   global risks
   global STATS
-  global CONFOUNDtotalFanOut
+  global CONFOUND
   
   apply_age_restriction = 1
   age_restriction = 730
   sloc_normalized = 0
   changeTypes =["#Revisions", "NewAdditions", "DiffSizes", "EditDistances"] 
   ### will change based on feature 
-  all_features = ['McCabe', 'IndentSTD','totalFanOut','Readability']
-  #all_features =['McCabe','Mcclure','MaximumBlockDepth', 'IndentSTD','totalFanOut', 'Readability']
-  #legends = ['McCabe','McClure','NBD', 'IndentSTD','totalFanOut', 'Readability']
-  legends = ['McCabe', 'IndentSTD','totalFanOut','Readability']
+  all_features = ['McCabe', 'IndentSTD','totalFanOut', 'Readability', 'MaintainabilityIndex']
+  #all_features =['Volume', 'Difficulty', 'Effort', 'Time', 'HalsteadBugs', 'MaintainabilityIndex']
+
+  #legends = ['Volume', 'Difficulty', 'Effort', 'Time', 'Difficulty', 'MI']
+  legends = ['McCabe', 'IndentSTD','totalFanOut', 'Readability', 'MIndex']
   #all_features = ['McCabe','Mcclure']
   
   list_projects()

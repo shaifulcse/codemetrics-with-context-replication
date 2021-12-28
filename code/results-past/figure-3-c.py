@@ -236,7 +236,8 @@ def draw_graph():
 
     X,Y = build_cdf(correl_feature[feature])
             
-    
+         
+
     line=(plt.plot(X,Y))
     
     plt.setp(line, linewidth=1,ls=styles[index], marker=marks[index], 
@@ -245,6 +246,8 @@ def draw_graph():
   plt.legend((legends),loc=0,fontsize=18)
   plt.xlabel("Correlation",fontsize=20)
   plt.ylabel("CDF",fontsize=18) 
+
+  plt.xticks(rotation=25)
 
   for label in ax.get_xticklabels():
     label.set_fontsize(19)
@@ -269,10 +272,11 @@ if __name__ == "__main__":
   sloc_normalized = 0
   changeTypes =["#Revisions", "NewAdditions", "DiffSizes", "EditDistances"] 
   ### will change based on feature 
-  all_features = ['McCabe', 'IndentSTD','totalFanOut','Readability']
-  #all_features =['McCabe','Mcclure','MaximumBlockDepth', 'IndentSTD','totalFanOut', 'Readability']
-  #legends = ['McCabe','McClure','NBD', 'IndentSTD','totalFanOut', 'Readability']
-  legends = ['McCabe', 'IndentSTD','totalFanOut','Readability']
+  all_features = ['McCabe', 'IndentSTD','totalFanOut',  'Readability', 'MaintainabilityIndex']
+  #all_features =['Volume', 'Difficulty', 'Effort', 'Time', 'HalsteadBugs', 'MaintainabilityIndex']
+
+  #legends = ['Volume', 'Difficulty', 'Effort', 'Time', 'Difficulty', 'MI']
+  legends = ['McCabe', 'IndentSTD','totalFanOut', 'Readability', 'MIndex']
   #all_features = ['McCabe','Mcclure']
   
   list_projects()

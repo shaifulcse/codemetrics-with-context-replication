@@ -28,15 +28,15 @@ RESULT_PATH="../../data/complexity-and-change-data/"
 PROJECTS = {}
 correl_feature = {}
 
-styles=['-', '--','-.',':']
-colors = ['r', 'g','b','y']
 styles=["-", "--","-.", ":", "-", "--","-.", ":"]
-marks=["^", "d", "o", "v", "p", "s", "<", ">"]
+marks=["^", "d", "o", "v", "p", "s", "*", ">"]
 #marks_size=[15, 17, 10, 15, 17, 10, 12,15]
-marks_size=[15, 17, 10, 15, 17, 10, 12,15]
+marks_size=[12, 12, 12, 12, 12, 12, 18, 20]
 marker_color=['#0F52BA','#ff7518','#6CA939','#e34234','#756bb1','brown','#c994c7', '#636363']
+gap = [3,5,3,4,3,2,4,5,3]
+#marks_size=[15, 17, 10, 15, 17, 10, 12,15]
 
-gap = [5,5,3,4,4,3]
+gap = [5,5,3,4,4,3, 5,3,4]
 
 def list_projects():
   fr = open(PROJECTS_LIST,"r")
@@ -240,7 +240,7 @@ def draw_graph():
     line=(plt.plot(X,Y))
     
     plt.setp(line, linewidth=1,ls=styles[index], marker=marks[index], 
-             markerfacecolor=marker_color[index], markersize = 12, color=marker_color[index],markevery=gap[index])
+             markerfacecolor=marker_color[index], markersize = marks_size[index], color=marker_color[index],markevery=gap[index])
     index += 1
   plt.legend((legends),loc=0,fontsize=14)
   plt.xlabel("Correlation",fontsize=20)
@@ -269,9 +269,14 @@ if __name__ == "__main__":
   sloc_normalized = 1
   changeTypes =["#Revisions", "NewAdditions", "DiffSizes", "EditDistances"] 
   ### will change based on feature 
-  #all_features = ['McCabe', 'IndentSTD','totalFanOut','Readability']
-  all_features =['McCabe','Mcclure','MaximumBlockDepth', 'IndentSTD','totalFanOut', 'Readability']
-  legends = ['McCabe','McClure','NBD', 'IndentSTD','totalFanOut', 'Readability']
+  all_features =['McCabe','Mcclure','MaximumBlockDepth', 'IndentSTD','totalFanOut', 'Readability',  'MaintainabilityIndex']
+  legends = ['McCabe','McClure','NBD', 'IndentSTD','totalFanOut', 'Readability', 'MIndex']
+
+  #all_features = ['McCabe', 'IndentSTD','totalFanOut',  'Readability', 'MaintainabilityIndex']
+  #all_features =['Volume', 'Difficulty', 'Effort', 'Time', 'HalsteadBugs', 'MaintainabilityIndex']
+
+  #legends = ['Volume', 'Difficulty', 'Effort', 'Time', 'Difficulty', 'MI']
+  #legends = ['McCabe', 'IndentSTD','totalFanOut', 'Readability', 'MIndex']
   #legends = ['McCabe', 'IndentSTD','totalFanOut','Readability']
   #all_features = ['McCabe','Mcclure']
   

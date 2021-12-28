@@ -67,6 +67,9 @@ def find_index(feature, project):
 
 
 def parse_data():
+  
+  global tot
+ 
   X = []
   Y = []
   for project in PROJECTS: 
@@ -112,6 +115,8 @@ def parse_data():
         
         if sloc_normalized == 1:
           feature_value = 100.0 * (feature_value/sloc)      
+          if feature_value == 200.0:
+            tot += 1
         X.append(sloc)
         Y.append(feature_value)
      
@@ -121,10 +126,17 @@ def parse_data():
         sloc = float(sloc_values[0])
                 
         if sloc_normalized == 1:
+ 
           feature_value = 100.0 * (feature_value/sloc)        
+          if feature_value == 200.0:
+            tot += 1
         
         X.append(sloc)
         Y.append(feature_value)
+
+
+
+  print tot
   return X,Y
 
 def list_indexes(feature, project):
@@ -172,8 +184,9 @@ if __name__ == "__main__":
   global changeTypes
   global risks
   global STATS
-  global CONFOUNDtotalFanOut
-  
+  global CONFOUND
+  global tot
+  tot = 0
   apply_age_restriction = 1
   age_restriction = 730
   sloc_normalized = 1
@@ -182,5 +195,6 @@ if __name__ == "__main__":
   for feature in all_features:
     print feature  
     X, Y = parse_data()
+
   draw_scatter(X,Y)
 
