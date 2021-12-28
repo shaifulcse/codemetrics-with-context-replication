@@ -96,7 +96,7 @@ def draw_graph():
   currentAxis = plt.gca()
   currentAxis.add_patch(Rectangle((1 , 0.0), 11, 1, fill=False, color = 'red', linewidth = 3))
 
-  currentAxis.add_patch(Rectangle((33 , 0.0), 0, 1, fill=False, color = 'red', linewidth = 3))
+  currentAxis.add_patch(Rectangle((32 , 0.0), 0, 1, fill=False, color = 'red', linewidth = 3))
   plt.show()
 
 if __name__ == "__main__":

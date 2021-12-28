@@ -138,6 +138,10 @@ def write():
               ft = 'NBD'
             if feature == 'totalFanOut':
               ft = 'FanOut'
+
+            if feature == 'MaintainabilityIndex':
+              ft = 'MIndex'
+
             fw.write(project+","+method+","+ft+","+size+","+ str(value)+"\n")
             #print project+","+method+","+ft+","+size+","+ str(value)
   fw.flush()
@@ -147,9 +151,9 @@ def write():
 def graph():
   df = pd.read_csv('seaborn_data.csv')	
   #sns.boxplot(x="Feature", y="Value", hue="Size",  hue_order=['totalFanOut','Mcclure','McCabe', 'IndentSTD','MaximumBlockDepth', 'Readability'],   data=df, palette="Set2")
-  b = sns.boxplot(x="Feature", y="Value", hue="Size", order = ['FanOut','McClure','McCabe', 'IndentSTD','NBD', 'Readability'], hue_order=['All', 'Large'], data=df, palette="Set2")
-  ax.set_ylim(-1, 60)
-  
+  b = sns.boxplot(x="Feature", y="Value", hue="Size", order = ['MIndex', 'FanOut','McClure','McCabe', 'IndentSTD','NBD', 'Readability'], hue_order=['All', 'Large'], data=df, palette="Set2")
+  ax.set_ylim(-1, 160)
+
   plt.legend(loc=1,fontsize=18)
   for label in ax.get_xticklabels():
     label.set_fontsize(18)
@@ -163,6 +167,7 @@ def graph():
       
 if __name__ == "__main__":
 
+
   global feature 
   global age_restriction
   global all_features 
@@ -170,9 +175,9 @@ if __name__ == "__main__":
   age_restriction = 730
 
     
-  all_features =['McCabe','Mcclure','MaximumBlockDepth', 'IndentSTD','totalFanOut', 'Readability']
+  all_features =['McCabe','Mcclure','MaximumBlockDepth', 'IndentSTD','totalFanOut', 'Readability',  'MaintainabilityIndex']
   #all_features =['McCabe','Mcclure'] 
-  legends = ['McCabe','McClure','NBD', 'IndentSTD','totalFanOut', 'Readability']
+  legends = ['McCabe','McClure','NBD', 'IndentSTD','totalFanOut', 'Readability', 'MIndex']
   
   list_projects()
   
@@ -183,6 +188,7 @@ if __name__ == "__main__":
     
  
   write()
+  print "drawing graph" 
     
   graph()
    
