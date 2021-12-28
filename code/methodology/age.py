@@ -50,6 +50,7 @@ def find_index(feature, project):
 
 def parse_age(index):
   tot = 0
+  age_2 = 0
   for project in PROJECTS:
     c = 0  
     fr = open(RESULT_PATH+project+".txt")
@@ -61,6 +62,8 @@ def parse_age(index):
       line = line.strip()
       data = re.findall("[^\t]+",line)
       age = int(data[index])
+      if age > 730:
+        age_2 += 1
       c+=1
       if age not in AGES:
         AGES[age] = 1
@@ -68,7 +71,7 @@ def parse_age(index):
         AGES[age] += 1 
     print project, c    
     tot+=c
-  print tot    
+  print tot, age_2    
 def draw_graph(cdf):
 
   line=(plt.plot(range(0, len(cdf)),cdf))
