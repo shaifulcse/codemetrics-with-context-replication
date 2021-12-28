@@ -11,7 +11,7 @@ ax = fig.add_subplot(111)
 
 PROJECTS_LIST = "../../info/settings-project.txt"
 
-RESULT_PATH="../../data/cleaned-complexity-data/"
+RESULT_PATH="../../data/complexity-and-change-data/"
 
 PROJECTS = {}
 DIST ={}
