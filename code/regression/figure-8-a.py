@@ -15,11 +15,11 @@ ax = fig.add_subplot(111)
 
 
 styles=["-", "--","-.", ":", "-", "--","-.", ":"]
-marks=["^", "d", "o", "v", "p", "s", "<", ">"]
+marks=["^", "d", "o", "v", "p", "s", "*", ">"]
 #marks_size=[15, 17, 10, 15, 17, 10, 12,15]
-marks_size=[15, 17, 10, 15, 17, 10, 12,15]
+marks_size=[12, 12, 12, 12, 12, 12, 15, 20]
 marker_color=['#0F52BA','#ff7518','#6CA939','#e34234','#756bb1','brown','#c994c7', '#636363']
-gap = [3,5,3,4,3,2]
+gap = [3,5,3,4,3,2,4,5,3]
 
 PROJECTS_LIST = "../../info/settings-project.txt"
 
@@ -177,7 +177,12 @@ def regression(f):
       for joint in STATS[project][method]:
         data = joint.split("-")
         slc = float(data[0])
-        ft = float(data[1])
+
+        if '--' in joint:
+          ft = float(data[2])
+        else:
+          ft = float(data[1])
+
         sloc.append(slc)
         feature.append(ft)
       
@@ -238,7 +243,7 @@ def draw_graph():
     
     plt.setp(line, linewidth=3,ls=styles[index], marker=marks[index],
 
-             markerfacecolor=marker_color[index], markersize = 12, color=marker_color[index],markevery=gap[index])
+             markerfacecolor=marker_color[index], markersize = marks_size[index], color=marker_color[index],markevery=gap[index])
     index += 1
     
   plt.legend((legends),loc=0,fontsize=14)
@@ -295,7 +300,7 @@ def write_for_effsize():
 
 def check_group(size):
 
-  if size <=33:
+  if size <=32:
     return 0
   return 1 
 
@@ -325,9 +330,9 @@ if __name__ == "__main__":
 
   type = changeTypes[0]  
 
-  all_features =['McCabe','Mcclure','MaximumBlockDepth', 'IndentSTD','totalFanOut', 'Readability']
+  all_features =['McCabe','Mcclure','MaximumBlockDepth', 'IndentSTD','totalFanOut', 'Readability',  'MaintainabilityIndex']
+  legends = ['McCabe','McClure','NBD', 'IndentSTD','totalFanOut', 'Readability', 'MIndex']
 
-  legends = ['McCabe','McClure','NBD', 'IndentSTD','totalFanOut', 'Readability']
   list_projects()
 
   for feature in all_features:

@@ -9,22 +9,23 @@ import numpy as np
 import random
 import seaborn as sns
 import pandas as pd
+import matplotlib.patches as patches
+
 sns.set(font_scale = 1.2)
 fig = plt.figure()
 ax = fig.add_subplot(111)
 
 
 styles=["-", "--","-.", ":", "-", "--","-.", ":"]
-marks=["^", "d", "o", "v", "p", "s", "<", ">"]
+marks=["^", "d", "o", "v", "p", "s", "*", ">"]
 #marks_size=[15, 17, 10, 15, 17, 10, 12,15]
-marks_size=[15, 17, 10, 15, 17, 10, 12,15]
+marks_size=[12, 12, 12, 12, 12, 12, 15, 20]
 marker_color=['#0F52BA','#ff7518','#6CA939','#e34234','#756bb1','brown','#c994c7', '#636363']
-gap = [3,5,3,4,3,2]
+gap = [3,5,3,4,3,2,4,5,3]
 
 PROJECTS_LIST = "../../info/settings-project.txt"
 
 RESULT_PATH="../../data/complexity-and-change-data/"
-
 #RESULT_PATH="/home/shaiful/research/software-evolution/result/static-analysis/source-code/selected-features-corrected/"
 
 PROJECTS = {}
@@ -176,8 +177,14 @@ def regression(f):
     for method in STATS[project]:
       for joint in STATS[project][method]:
         data = joint.split("-")
+       
         slc = float(data[0])
-        ft = float(data[1])
+
+        if '--' in joint:
+          ft = float(data[2])
+        else:
+          ft = float(data[1])
+
         sloc.append(slc)
         feature.append(ft)
       
@@ -239,8 +246,9 @@ def draw_graph():
     
     plt.setp(line, linewidth=3,ls=styles[index], marker=marks[index],
 
-             markerfacecolor=marker_color[index], markersize = 12, color=marker_color[index],markevery=gap[index])
+             markerfacecolor=marker_color[index], markersize = marks_size[index], color=marker_color[index],markevery=gap[index])
     index += 1
+    
     
   plt.legend((legends),loc=0,fontsize=14)
   plt.xlabel("Improvement %",fontsize=18)
@@ -251,7 +259,10 @@ def draw_graph():
   for label in ax.get_yticklabels():
     label.set_fontsize(18)
   plt.grid(True)  
-  #ax.set_xlim(0.001, 4000)
+  ax.set_ylim(0, 1.10)
+
+
+
   plt.tight_layout() 
   plt.show()
 
@@ -282,7 +293,7 @@ def build_cdf(ls):
     prev =  prob + prev
     
   return X,Y  
-"""
+
 def write_for_effsize():
   fw = open("improvement_data.csv","w")
   
@@ -293,7 +304,7 @@ def write_for_effsize():
       fw.write(str(v)+"\t")
     fw.write("\n")
   fw.close()
-"""  
+  
 
 def check_group(size):
   return 1 ### for all, no filtering
@@ -327,8 +338,12 @@ if __name__ == "__main__":
 
   type = changeTypes[3]  
 
-  all_features =['McCabe','Mcclure','MaximumBlockDepth', 'IndentSTD','totalFanOut', 'Readability'] 
-  legends = ['McCabe','McClure','NBD', 'IndentSTD','totalFanOut', 'Readability']
+  all_features =['McCabe','Mcclure','MaximumBlockDepth', 'IndentSTD','totalFanOut', 'Readability',  'MaintainabilityIndex']
+
+  legends = ['McCabe','McClure','NBD', 'IndentSTD','totalFanOut', 'Readability', 'MIndex']
+
+  #all_features =['MaintainabilityIndex']
+  #legends = ['MIndex']
   list_projects()
 
 
@@ -337,7 +352,7 @@ if __name__ == "__main__":
     feature_improvement[feature] = []  
     parse_data()
     regression(feature)
-
+    
   draw_graph()
-#  write_for_effsize()  
+  write_for_effsize()  
 
