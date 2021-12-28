@@ -238,7 +238,7 @@ def draw_graph():
     line=(plt.plot(X,Y))
     
     plt.setp(line, linewidth=1,ls=styles[index], marker=marks[index], 
-             markerfacecolor=marker_color[index], markersize = 12, color=marker_color[index],markevery=gap[index])
+             markerfacecolor=marker_color[index], markersize = marks_size[index], color=marker_color[index],markevery=gap[index])
     index += 1
   plt.legend((legends),loc=0,fontsize=14)
   plt.xlabel("Correlation",fontsize=20)
