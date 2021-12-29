@@ -92,14 +92,14 @@ def parse_data():
         feature_value = float(feature_values[i-1]) 
         sloc = float(sloc_values[i-1])
 
-        if sloc > 33:
+        if sloc > 32:
           STATS[project][feature][method]['Large'].append(feature_value)
         STATS[project][feature][method]['All'].append(feature_value)
  
       if track == 0: ## there was no change
         feature_value = float(feature_values[0])         
         sloc = float(sloc_values[0])         
-        if sloc > 33:
+        if sloc > 32:
           STATS[project][feature][method]['Large'].append(feature_value)
         STATS[project][feature][method]['All'].append(feature_value) 
 
@@ -152,9 +152,9 @@ def graph():
   df = pd.read_csv('seaborn_data.csv')	
   #sns.boxplot(x="Feature", y="Value", hue="Size",  hue_order=['totalFanOut','Mcclure','McCabe', 'IndentSTD','MaximumBlockDepth', 'Readability'],   data=df, palette="Set2")
   b = sns.boxplot(x="Feature", y="Value", hue="Size", order = ['MIndex', 'FanOut','McClure','McCabe', 'IndentSTD','NBD', 'Readability'], hue_order=['All', 'Large'], data=df, palette="Set2")
-  #ax.set_ylim(-1, 160)
+  ax.set_ylim(-1, 160)
 
-  plt.yscale("log")
+  #plt.yscale("log")
   plt.legend(loc=1,fontsize=18)
   for label in ax.get_xticklabels():
     label.set_fontsize(18)
