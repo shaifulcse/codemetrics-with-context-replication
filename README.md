@@ -1,5 +1,5 @@
 # codemetrics-with-context-data-for-replication
-### Complexity and Change Data
+### Project information
 
 The `info/settings-project.txt` file contains: project name checkoutDate  and snapshot for checkout (for all the 47 projects).
 
